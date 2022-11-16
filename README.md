@@ -4,3 +4,9 @@ The Air Pressure System(APS) is a critical part in heavy-duty vehicles like truc
 #
 This is a Binary Classification problem, in which positive class indicates that the failure was caused by components of APS and negative class indicates that the failure was not caused by APS(caused by someother components in the vehicle)
 
+##Step 1 Clone the Repository  
+
+``` 
+git clone https://github.com/Gomathi-Murugesan/sensor-fault-detection.git 
+
+```

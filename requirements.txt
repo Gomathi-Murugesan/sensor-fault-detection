@@ -1,0 +1,6 @@
+pymongo[srv]==4.2.0
+-e . ##editable installation - this is used to find the packages from our project. It searches for setup.py file
+from_root
+pandas
+numpy
+scikit-learn==1.1.3
