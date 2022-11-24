@@ -13,7 +13,7 @@ class TrainingPipeline:
     """
     Training pipeline class with various compenents
     """
-
+    is_pipeline_running = False
     def __init__(self):
         self.training_pipeline_config = TrainingPipelineConfig()
     
@@ -106,6 +106,7 @@ class TrainingPipeline:
 
     def run_training_pipeline(self):
         try:
+            TrainingPipeline.is_pipeline_running = True
             data_ingestion_artifacts: DataIngestionArtifacts = self.start_data_ingestion()
             data_validation_artifacts= self.start_data_validation(data_ingestion_artifacts)
             data_tranformation_artifacts= self.start_data_transformation(data_validation_artifacts)
@@ -114,5 +115,7 @@ class TrainingPipeline:
             if not model_evaluation_artifacts.is_model_accepted:
                 raise Exception('Trained model is not better than the best model')
             model_pusher_artifacts= self.start_model_pusher(model_evaluation_artifacts)
+            TrainingPipeline.is_pipeline_running = False
         except Exception as e:
+            TrainingPipeline.is_pipeline_running = False
             raise SensorException(e, sys)

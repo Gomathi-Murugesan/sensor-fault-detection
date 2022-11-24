@@ -91,7 +91,7 @@ class ModelEvaluation:
                     train_model_metric_artifacts = new_trained_metric,
                     best_model_metric_artifacts = best_saved_metric
                 )
-            print(model_evaluation_artifacts)
+            #print(model_evaluation_artifacts)
             # write the model evaluation report in yaml file using write_yaml_file
             #model_evaluation_report = model_evaluation_artifacts.__dict__()
             model_evaluation_report_file_path = self.model_evaluation_config.model_evaluation_report_file_path
