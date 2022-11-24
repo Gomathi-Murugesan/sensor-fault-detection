@@ -29,4 +29,19 @@ class ClassificationMetricArtifacts():
 @dataclass
 class ModelTrainerArtifacts():
     trained_model_file_path : str
-    metric_artifacts : ClassificationMetricArtifacts
+    train_metric_artifacts : ClassificationMetricArtifacts
+    test_metric_artifacts : ClassificationMetricArtifacts
+
+@dataclass
+class ModelEvaluationArtifacts():
+    is_model_accepted :bool
+    improved_accuracy : float
+    best_model_path : str
+    trained_model_path : str
+    train_model_metric_artifacts : ClassificationMetricArtifacts
+    best_model_metric_artifacts : ClassificationMetricArtifacts
+
+@dataclass
+class ModelPusherArtifacts():
+    model_file_path : str
+    saved_model_path : str

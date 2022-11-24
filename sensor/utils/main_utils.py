@@ -61,3 +61,13 @@ def save_object(file_path:str, obj: object):
         logging.info("Saved a given preprocessing object in a given file path")
     except Exception as e:
         raise SensorException(e, sys)
+
+def load_object(file_path) -> object:
+    """ Function to load a object from a given file path"""
+    try:
+        if not os.path.exists(file_path):
+            raise Exception(f"The file {file_path} doesnot exist")
+        with open(file_path, 'rb') as file_obj:
+            return dill.load(file_obj)
+    except Exception as e:
+        raise SensorException(e, sys)
